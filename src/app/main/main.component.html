@@ -1,0 +1,19 @@
+<main class="container-fluid main min-vh-100">
+    <div class="text-center">
+      <div class="row">
+        <div class="col-sm m-2">Listado de Empleados Registrados</div>
+        <div class="col-sm m-2">
+          <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#newEmployeeModal">Nuevo</button>
+        </div>
+      </div>
+    </div>
+    
+    <app-table-employees></app-table-employees>
+
+    <app-new-employee-modal></app-new-employee-modal> 
+
+    <app-edit-employee-modal></app-edit-employee-modal>
+
+    <app-delete-employee-modal></app-delete-employee-modal>
+
+</main>

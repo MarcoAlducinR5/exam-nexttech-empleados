@@ -1,0 +1,44 @@
+<!-- Modal nuevo registro -->
+<div class="modal fade" id="newEmployeeModal" tabindex="-1" aria-labelledby="newEmployeeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h1 class="modal-title fs-5" id="newEmployeeModalLabel">Registrar Nuevo Empleado</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form>
+        <div class="modal-body">
+            <div class="mb-3">
+                <label for="nombre-text" class="col-form-label">Nombre:</label>
+                <input type="text" class="form-control" id="nombre-text" name="nombre-text">
+            </div>
+            <div class="mb-3">
+                <label for="puesto-text" class="col-form-label">Puesto:</label>
+                <input list="allJobs" class="form-control" id="puesto-text" name="puesto-text" placeholder="Seleccione un puesto">
+                <datalist id="allJobs">
+                @for(job of getAllJobs; track job.id) {
+                    <option value={{job.puesto}}>{{ job.puesto }}</option>
+                }
+                </datalist>
+            </div>
+            <div class="mb-3">
+                <label for="ingreso-text" class="col-form-label">Fecha de ingreso:</label>
+                <input type="date" class="form-control" id="ingreso-text" name="ingreso-text">
+            </div>
+            <div class="mb-3">
+                <label for="salario-text" class="col-form-label">Salario:</label>
+                <input type="number" class="form-control" id="salario-text" name="salario-text">
+            </div>
+            <div class="mb-3">
+                <label for="edad-text" class="col-form-label">Edad:</label>
+                <input type="number" class="form-control" id="edad-text" name="edad-text">
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-outline-primary" data-bs-dismiss="modal">Guardar cambios</button>
+        </div>
+        </form>
+    </div>
+    </div>
+</div>

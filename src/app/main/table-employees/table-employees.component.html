@@ -1,0 +1,38 @@
+<div class="table-responsive-sm">
+  <table class="table table-striped ">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Puesto</th>
+          <th scope="col">Fecha de ingreso</th>
+          <th scope="col">Salario</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for(employee of employees; track employee.id) {
+          <tr>
+      <th scope="row">{{employee.id}}</th>
+      <td>{{employee.nombre}}</td>
+      <td>{{employee.puesto}}</td>
+      <td>{{employee.ingreso}}</td>
+      <td>${{employee.salario}}</td>
+      <td>
+        <div class="row">
+          <div class="col-sm m-2 m-sm-0">
+            <button class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#editEmployeeModal">Editar</button>
+          </div>
+          <div class="col-sm m-2 m-sm-0">
+            <button class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#deleteEmployeeModal">Eliminar</button>
+          </div>
+        </div>
+        
+        
+      </td>
+    
+  </tr>
+        }
+  </tbody>
+  </table>
+</div>
