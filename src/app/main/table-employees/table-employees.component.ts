@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { EmployeesList } from '../../interfaces/employees-list';
+import { EmployeesService } from '../../services/employees/employees.service';
 
 @Component({
   selector: 'app-table-employees',
@@ -9,22 +10,15 @@ import { EmployeesList } from '../../interfaces/employees-list';
 })
 export class TableEmployeesComponent {
   
-    employees: EmployeesList[] =[
-      {
-        "id": 1,
-        "nombre": "Marco Antonio Alducin Garcia",
-        "puesto": "Developer",
-        "ingreso": "2025-03-31",
-        "salario": "10000",
-        "edad": 33 
-      },
-      {
-        "id": 2,
-        "nombre": "Juliana Garcia Millan",
-        "puesto": "Executive",
-        "ingreso": "2023-12-01",
-        "salario": "30000",
-        "edad": 50 
-      }
-    ];
-}
+    employees: EmployeesList[] = [];
+    listEmloyees: EmployeesService = inject(EmployeesService);
+
+    editarRegistro(id: Number){
+      console.log(this.listEmloyees.getEmployeeId(id))
+      // return this.listEmloyees.getEmployeeId(id);
+    }
+
+    constructor(){
+      this.employees = this.listEmloyees.getAllEmployees();
+    }
+  }
